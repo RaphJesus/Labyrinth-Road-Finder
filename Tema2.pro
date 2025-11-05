@@ -1,32 +1,31 @@
-QT       += core gui
+QT       += core gui widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+TARGET = Tema2
+TEMPLATE = app
 
-CONFIG += c++17
+# Definește folderul sursă
+SOURCE_DIR = src
 
-# You can make your code fail to compile if it uses deprecated APIs.
-# In order to do so, uncomment the following line.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+# Specifică unde să caute fișierele .h
+INCLUDEPATH += $$SOURCE_DIR
 
+# Adaugă toate fișierele sursă folosind noul director
 SOURCES += \
-    labyrinth.cpp \
-    labyrinthgraph.cpp \
-    labyrinthrenderer.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    pathsolver.cpp
+    $$SOURCE_DIR/main.cpp \
+    $$SOURCE_DIR/mainwindow.cpp \
+    $$SOURCE_DIR/labyrinth.cpp \
+    $$SOURCE_DIR/labyrinthgraph.cpp \
+    $$SOURCE_DIR/labyrinthrenderer.cpp \
+    $$SOURCE_DIR/pathsolver.cpp
 
+# Adaugă toate fișierele header
 HEADERS += \
-    labyrinth.h \
-    labyrinthgraph.h \
-    labyrinthrenderer.h \
-    mainwindow.h \
-    pathsolver.h
+    $$SOURCE_DIR/mainwindow.h \
+    $$SOURCE_DIR/labyrinth.h \
+    $$SOURCE_DIR/labyrinthgraph.h \
+    $$SOURCE_DIR/labyrinthrenderer.h \
+    $$SOURCE_DIR/pathsolver.h
 
+# Adaugă fișierul UI
 FORMS += \
-    mainwindow.ui
-
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+    $$SOURCE_DIR/mainwindow.ui
